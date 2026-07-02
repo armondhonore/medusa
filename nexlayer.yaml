@@ -1,0 +1,15 @@
+application:
+  name: deep-iris-medusa
+  pods:
+    - name: app
+      image: "registry.nexlayer.io/user_01kece1xyh817dwff7wnarhkxd/medusa:19f214653e7"
+      path: /
+      servicePorts:
+        - 80
+      vars:
+        REDIS_URL: "redis://redis.pod:6379"
+    - name: redis
+      image: mirror.gcr.io/library/redis:7-alpine
+      servicePorts:
+        - 6379
+      vars: {}
